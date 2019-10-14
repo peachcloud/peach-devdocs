@@ -1,0 +1,15 @@
+# Summary
+
+- [Introduction](./chapter_1.md)
+- [Hardware](./chapter_2.md)
+  - [Requirements](./chapter_2_1.md)
+  - [GPIO Pinout](./chapter_2_2.md)
+- [Software](./chapter_3.md)
+  - [Operating System](./chapter_3_1.md)
+  - [Microservices](./chapter_3_2.md)
+  - [Configuration](./chapter_3_3.md)
+  - [Interfaces](./chapter_3_4.md)
+    - [Physical Interface](./chapter_3_4_1.md)
+    - [Web Interface](./chapter_3_4_2.md)
+- [Contributor's Guide](./chapter_4.md)
+- [Licensing](./chapter_5.md)
