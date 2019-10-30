@@ -15,7 +15,7 @@ System statistics microservice module for PeachCloud. Provides a JSON-RPC wrappe
 | `mem_stats` | Memory statistics | `total`, `free`, `used` |
 | `uptime` | System uptime | `secs`, `nanos` |
 
-### File Tree
+### Directory Tree
 
 ```
 .

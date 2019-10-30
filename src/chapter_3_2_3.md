@@ -27,7 +27,7 @@ _Note: This module is a work-in-progress._
 | `reconnect_wifi` | `iface` | Disconnect and reconnect given interface |
 | `reassociate_wifi` | `iface` | Reassociate with current AP for given interface |
 
-### File Tree
+### Directory Tree
 
 ```
 .

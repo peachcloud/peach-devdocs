@@ -6,7 +6,7 @@ OLED menu microservice module for PeachCloud. A state machine which listens for 
 
 _Note: This module is a work-in-progress._
 
-### File Tree
+### Directory Tree
 
 ```
 .

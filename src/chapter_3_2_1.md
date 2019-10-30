@@ -6,7 +6,7 @@ In the case of PeachCloud, the `peach-menu` microservice subscribes to `peach-bu
 
 _Note: This module is relatively stable but is still a work-in-progress._
 
-### File Tree
+### Directory Tree
 
 ```
 .
