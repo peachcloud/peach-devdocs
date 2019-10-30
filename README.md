@@ -2,11 +2,11 @@
 
 Developer documentation for PeachCloud in the form of a Markdown book.
 
-_Note: the book is not yet available in built form online. A link will be included in this repo when that is the case._
+_Note: the book is not yet available in built-form online. A link will be included in this repo when that is the case._
 
 ### Quickstart
 
-If you do not wish to build and serve the book locally, simply navigate to the [src/SUMMARY.md](https://github.com/peachcloud/peach-devdocs/blob/master/src/SUMMARY.md) file on the GitHub repo and navigate the documentation from there.
+If you do not wish to build and serve the book locally, simply navigate to the [src/SUMMARY.md](https://github.com/peachcloud/peach-devdocs/blob/master/src/SUMMARY.md) file on the GitHub repo and read the documentation from there.
 
 ### Setup
 
