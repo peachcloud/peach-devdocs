@@ -4,13 +4,13 @@ PeachCloud is built primarily with a [microservices architecture](https://micros
 
 The suite of PeachCloud microservices currently includes:
 
- - [peach-buttons](https://github.com/peachcloud/peach-buttons)
+ - **peach-buttons** [(repo)](https://github.com/peachcloud/peach-buttons)
    - poll GPIO pins for button presses and emit events via pub-sub
- - [peach-menu](https://github.com/peachcloud/peach-menu)
+ - **peach-menu** [(repo)](https://github.com/peachcloud/peach-menu)
    - monitor and interact with the device via the physical interface
- - [peach-network](https://github.com/peachcloud/peach-network)
+ - **peach-network** [(repo)](https://github.com/peachcloud/peach-network)
    - query and configure network interfaces
- - [peach-oled](https://github.com/peachcloud/peach-oled)
+ - **peach-oled** [(repo)](https://github.com/peachcloud/peach-oled)
    - write and draw to the OLED display
- - [peach-stats](https://github.com/peachcloud/peach-menu)
+ - **peach-stats** [(repo)](https://github.com/peachcloud/peach-menu)
    - query system statistics
