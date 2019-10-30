@@ -2,6 +2,12 @@
 
 Developer documentation for PeachCloud in the form of a Markdown book.
 
+_Note: the book is not yet available in built form online. A link will be included in this repo when that is the case._
+
+### Quickstart
+
+If you do not wish to build and serve the book locally, simply navigate to the [src/SUMMARY.md](https://github.com/peachcloud/peach-devdocs/blob/master/src/SUMMARY.md) file on the GitHub repo and navigate the documentation from there.
+
 ### Setup
 
 [mdBook](https://github.com/rust-lang/mdBook) is required to build and serve the book locally. Installation can be achieved via the [release binaries](https://github.com/rust-lang/mdBook/releases) or directly via Cargo (assuming you have Rust version 1.35 or higher and Cargo installed):
