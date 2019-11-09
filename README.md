@@ -2,7 +2,7 @@
 
 Developer documentation for [PeachCloud](https://github.com/peachcloud) in the form of a Markdown book.
 
-:book: Read this online [**here**](https://mixmix.github.io/peach-devdocs)
+## [Read online here >> :book:](https://mixmix.github.io/peach-devdocs)
 
 :construction: _TODO - find a nice place to publish this online!_ :construction:
 
