@@ -6,6 +6,8 @@ Developer documentation for [PeachCloud](https://github.com/peachcloud) in the f
 
 :construction: _TODO - find a nice place to publish this online!_ :construction:
 
+![peachloud interface](./src/assets/peachcloud.jpg)
+
 ## Development
 
 Dependencies:
