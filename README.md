@@ -6,7 +6,7 @@ Developer documentation for [PeachCloud](https://github.com/peachcloud) in the f
 
 :construction: _TODO - find a nice place to publish this online!_ :construction:
 
-![peachloud interface](./src/assets/peachcloud.jpg)
+![PeachCloud physical interface](./src/assets/peachcloud.jpg)
 
 ## Development
 
@@ -23,10 +23,9 @@ This serves the current state of the book at [localhost:3000](http://localhost:3
 When changes to any files are saved, the browser view will automatically refresh to reflect the new state.
 
 **NOTES**:
-- this assumes `mdbook` is in you `PATH`
+- this assumes `mdbook` is in your `PATH`
   - the command for adding the default cargo bin directory is `export PATH=$PATH:~/.cargo/bin`.
-  - if you downloaded the prebuilt binary then make sure the directory it's in is in your `PATH`
-
+  - if you downloaded the prebuilt binary then make sure the directory is in your `PATH`
 
 ## Build a release
 
@@ -38,7 +37,6 @@ This builds the book into a static release ready for publishing.
 Currently outputs to `book/` directory.
 
 :construction: _TODO - describe how and where this is published / hosted_ :construction:
-
 
 ### Licensing
 
