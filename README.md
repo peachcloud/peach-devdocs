@@ -1,31 +1,44 @@
 # peach-devdocs
 
-Developer documentation for PeachCloud in the form of a Markdown book.
+Developer documentation for [PeachCloud](https://github.com/peachcloud) in the form of a Markdown book.
 
-_Note: the book is not yet available in built-form online. A link will be included in this repo when that is the case._
+## [Read online here >> :book:](https://mixmix.github.io/peach-devdocs)
 
-### Quickstart
+:construction: _TODO - find a nice place to publish this online!_ :construction:
 
-If you do not wish to build and serve the book locally, simply navigate to the [src/SUMMARY.md](https://github.com/peachcloud/peach-devdocs/blob/master/src/SUMMARY.md) file on the GitHub repo and read the documentation from there.
+![peachloud interface](./src/assets/peachcloud.jpg)
 
-### Setup
+## Development
 
-[mdBook](https://github.com/rust-lang/mdBook) is required to build and serve the book locally. Installation can be achieved via the [release binaries](https://github.com/rust-lang/mdBook/releases) or directly via Cargo (assuming you have Rust version 1.35 or higher and Cargo installed):
+Dependencies:
+- [mdBook](https://github.com/rust-lang/mdBook) (release binaries or cargo install)
 
-`cargo install mdbook`
+```bash
+$ git clone https://github.com/peachcloud/peach-devdocs
+$ cd peach-devdocs
+$ mdbook serve
+```
 
-Once mdBook is installed, clone this repo:
+This serves the current state of the book at [localhost:3000](http://localhost:3000).
+When changes to any files are saved, the browser view will automatically refresh to reflect the new state.
 
-`git clone https://github.com/peachcloud/peach-devdocs`
+**NOTES**:
+- this assumes `mdbook` is in you `PATH`
+  - the command for adding the default cargo bin directory is `export PATH=$PATH:~/.cargo/bin`.
+  - if you downloaded the prebuilt binary then make sure the directory it's in is in your `PATH`
 
-Move into the repo, add the Cargo bin directory to your `PATH`, build and serve:
 
-`cd peach-devdocs`  
-`export PATH=$PATH:~/.cargo/bin`  
-`mdbook build`  
-`mdbook serve`
+## Build a release
 
-The book is served on `localhost:3000` by default and refreshes automatically in-browser when changes to the documentation are saved.
+```
+$ mdbook serve
+```
+
+This builds the book into a static release ready for publishing.
+Currently outputs to `book/` directory.
+
+:construction: _TODO - describe how and where this is published / hosted_ :construction:
+
 
 ### Licensing
 
