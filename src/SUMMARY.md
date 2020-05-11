@@ -15,6 +15,7 @@
     - [peach-oled](./software/microservices/peach-oled.md)
     - [peach-stats](./software/microservices/peach-stats.md)
   - [Web Interface](./software/web_interface.md)
+  - [Pattern Library](./software/pattern_library.md)
   - [Configuration](./software/configuration.md)
 - [Contributor's Guide](./contributors_guide.md)
 - [Licensing](./licensing.md)
