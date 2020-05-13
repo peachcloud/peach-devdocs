@@ -1,5 +1,7 @@
 # Web Interface
 
+[![GitHub logo](/assets/github_logo.png "peach-buttons GitHub repository")](https://github.com/peachcloud/peach-buttons)
+
 [peach-web](https://github.com/peachcloud/peach-web) provides a web interface for monitoring and interacting with the PeachCloud device. This allows administration of the single-board computer (ie. Raspberry Pi) running PeachCloud, as well as the ssb-server and related plugins.
 
 ### Design

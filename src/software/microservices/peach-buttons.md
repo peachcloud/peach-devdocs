@@ -1,5 +1,9 @@
 # peach-buttons
 
+[![Build Status](https://travis-ci.com/peachcloud/peach-buttons.svg?branch=master)](https://travis-ci.com/peachcloud/peach-buttons)
+
+[![GitHub logo](/assets/github_logo.png "peach-buttons GitHub repository")](https://github.com/peachcloud/peach-buttons)
+
 GPIO microservice module for handling button presses. `peach-buttons` implements a JSON-RPC server with [Publish-Subscribe extension](https://docs.rs/jsonrpc-pubsub/11.0.0/jsonrpc_pubsub/). Each button press results in a JSON-RPC request being sent over websockets to any subscribers. A button code for the pressed button is sent with the request to subscribers, allowing state-specific actions to be taken by the subscriber.
 
 In the case of PeachCloud, the `peach-menu` microservice subscribes to `peach-buttons` in order to update the state of the menu after each button press.
