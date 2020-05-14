@@ -5,6 +5,7 @@
   - [Requirements](./hardware/requirements.md)
   - [GPIO Pinout](./hardware/gpio_pinout.md)
   - [Physical Interface](./hardware/physical_interface.md)
+  - [Configuration](./hardware/configuration.md)
 - [Software](./software/index.md)
   - [Operating System](./software/operating_system/index.md)
     - [Networking](./software/operating_system/networking.md)
