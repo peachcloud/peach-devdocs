@@ -12,7 +12,7 @@ _Note: This module is relatively stable but is still a work-in-progress._
 
 ### Directory Tree
 
-```
+```bash
 .
 ├── Cargo.lock
 ├── Cargo.toml
@@ -26,7 +26,7 @@ _Note: This module is relatively stable but is still a work-in-progress._
 
 ### Pin to Button to Button Code Mappings
 
-```
+```bash
 4 => Center => 0,
 27 => Left => 1,
 23 => Right => 2,

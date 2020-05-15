@@ -14,7 +14,7 @@ Any button or joystick direction can be pressed to wake the display after select
 
 ### Menu Structure
 
-```
+```bash
 .
 ├── Networking
 │   └── MODE
@@ -23,7 +23,7 @@ Any button or joystick direction can be pressed to wake the display after select
 │   └── IP
 │   └── SIGNAL
 │   └── Configuration
-│       ├── Client Mode
+│       └── Client Mode
 │       └── Access Point Mode
 ├── System Stats
 │   └── CPU

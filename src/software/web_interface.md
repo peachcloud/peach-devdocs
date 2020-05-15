@@ -12,7 +12,7 @@ HTML is rendered server-side. Request handlers call JSON-RPC microservices and s
 
 ### Directory Tree
 
-```
+```bash
 .
 ├── Cargo.lock
 ├── Cargo.toml

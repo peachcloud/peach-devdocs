@@ -14,7 +14,7 @@ _Note: This is a work-in-progress._
 
 ### Directory Tree
 
-```
+```bash
 .
 ├── css
 │   ├── css_class_names     // list of all custom class names

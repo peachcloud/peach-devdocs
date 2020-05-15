@@ -6,7 +6,7 @@ Additional configuration is required for Debian Buster ARM64 before I²C devices
 
 Run an I²C scan to verify that the module is correctly wired to the Pi:
 
-```
+```bash
 sudo apt-get install python-smbus i2c-tools
 sudo modprobe i2c-dev
 sudo i2cdetect -y 1
@@ -20,7 +20,7 @@ The device tree must be patched in order to set the clock frequency for I²C dev
 
 Copy `/boot/firmware/bcm2837-rpi-3-b.dtb` from the Pi microSD card to a computer running Linux. Run the following commands:
 
-```
+```bash
 sudo apt-get install device-tree-compiler
 cd /place/where/dtb/file/was/pasted
 dtc -I dtb -O dts > bcm2837-rpi-3-b.dts
@@ -38,7 +38,7 @@ Copy the resulting `dtb` onto the Pi microSD card and overwrite `/boot/firmware/
 
 Finally, run the following commands to complete the process:
 
-```
+```bash
 sudo modprobe i2c-bcm2835
 su
 echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-1/new_device
@@ -54,7 +54,7 @@ A device tree overlay is required to activate the internal pull-up resistors on 
 
 Begin by downloading the device tree overlay file: `mygpio.dtbo` (TODO: add download link...maybe add the file to one of the repos). Then run the following commands to apply the overlay:
 
-```
+```bash
 sudo mkdir /boot/firmware/overlays
 sudo cp mygpio.dtbo /boot/firmware/overlays/
 ```

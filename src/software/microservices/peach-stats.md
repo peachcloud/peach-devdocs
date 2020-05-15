@@ -19,7 +19,7 @@ System statistics microservice module for PeachCloud. Provides a JSON-RPC wrappe
 
 ### Directory Tree
 
-```
+```bash
 .
 ├── Cargo.lock
 ├── Cargo.toml

@@ -10,7 +10,7 @@ _Note: This module is a work-in-progress._
 
 ### Directory Tree
 
-```
+```bash
 .
 ├── Cargo.lock
 ├── Cargo.toml
@@ -30,7 +30,7 @@ _Note: This module is a work-in-progress._
 
 ### Button Code Mappings
 
-```
+```bash
 0 => Center,  
 1 => Left,  
 2 => Right,  
@@ -42,7 +42,7 @@ _Note: This module is a work-in-progress._
 
 ### States
 
-```
+```bash
 Home(0), // home menu
 Home(1), // networking selected
 Home(2), // system stats selected

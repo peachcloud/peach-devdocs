@@ -41,7 +41,7 @@ _Note: This module is a work-in-progress._
 
 ### Directory Tree
 
-```
+```bash
 .
 ├── Cargo.lock
 ├── Cargo.toml
