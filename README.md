@@ -1,5 +1,7 @@
 # peach-devdocs
 
+[![Build Status](https://travis-ci.com/peachcloud/peach-devdocs.svg?branch=master)](https://travis-ci.com/peachcloud/peach-devdocs)
+
 Developer documentation for [PeachCloud](https://github.com/peachcloud) in the form of a Markdown book.
 
 ## [Read online here >> :book:](https://mixmix.github.io/peach-devdocs)
