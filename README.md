@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.com/peachcloud/peach-devdocs.svg?branch=master)](https://travis-ci.com/peachcloud/peach-devdocs)
 
+![Generic badge](https://img.shields.io/badge/Version-0.2.0-green.svg)
+
 Developer documentation for [PeachCloud](https://github.com/peachcloud) in the form of a Markdown book.
 
-## [Read online here >> :book:](https://mixmix.github.io/peach-devdocs)
-
-:construction: _TODO - find a nice place to publish this online!_ :construction:
+## [Read online here >> :book:](http://docs.peachcloud.org)
 
 ![PeachCloud physical interface](./src/assets/peachcloud.jpg)
 
@@ -38,7 +38,11 @@ $ mdbook serve
 This builds the book into a static release ready for publishing.
 Currently outputs to `book/` directory.
 
-:construction: _TODO - describe how and where this is published / hosted_ :construction:
+## Hosting
+
+The PeachCloud developer documentation book is hosted at [docs.peachcloud.org](http://docs.peachcloud.org) using a simple Nginx deployment on a virtual server. HTTPS configuration is pending.
+
+This tutorial from Digital Ocean describes the deployment process: [How To Set Up Nginx Server Blocks (Virtual Hosts) on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04).
 
 ### Licensing
 
