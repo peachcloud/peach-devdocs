@@ -1,8 +1,6 @@
 # peach-devdocs
 
-[![Build Status](https://travis-ci.com/peachcloud/peach-devdocs.svg?branch=master)](https://travis-ci.com/peachcloud/peach-devdocs)
-
-![Generic badge](https://img.shields.io/badge/Version-0.2.0-green.svg)
+[![Build Status](https://travis-ci.com/peachcloud/peach-devdocs.svg?branch=master)](https://travis-ci.com/peachcloud/peach-devdocs) ![Generic badge](https://img.shields.io/badge/version-0.2.0-<COLOR>.svg)
 
 Developer documentation for [PeachCloud](https://github.com/peachcloud) in the form of a Markdown book.
 
