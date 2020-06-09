@@ -43,22 +43,23 @@ _Note: This module is a work-in-progress._
 ### States
 
 ```bash
-Home(0), // home menu
-Home(1), // networking selected
-Home(2), // system stats selected
-Home(3), // display off selected
-Home(4), // shutdown selected 
-Logo, // logo splash screen
-Network, // network device view
+Home(0),        // home menu
+Home(1),        // networking selected
+Home(2),        // system stats selected
+Home(3),        // display off selected
+Home(4),        // shutdown selected 
+Logo,           // logo splash screen
+Network,        // network device view
 NetworkConf(0), // network configuration menu
 NetworkConf(1), // client mode selected
 NetworkConf(2), // access point mode selected
 NetworkMode(0), // client mode activated
 NetworkMode(1), // access point mode activated
-OledPower(0), // oled display off
-OledPower(1), // oled display on
-Shutdown, // shutting down
-Stats, // system statistics view
+OledPower(0),   // oled display off
+OledPower(1),   // oled display on
+Reboot,         // rebooting
+Shutdown,       // shutting down
+Stats,          // system statistics view
 ```
 
 ### Setup
