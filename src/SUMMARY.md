@@ -9,6 +9,7 @@
 - [Software](./software/index.md)
   - [Operating System](./software/operating_system/index.md)
     - [Networking](./software/operating_system/networking.md)
+    - [Nginx](./software/operating_system/nginx.md)
   - [Microservices](./software/microservices/index.md)
     - [peach-buttons](./software/microservices/peach-buttons.md)
     - [peach-menu](./software/microservices/peach-menu.md)
