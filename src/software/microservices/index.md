@@ -8,6 +8,8 @@ The suite of PeachCloud microservices currently includes:
    - poll GPIO pins for button presses and emit events via pub-sub
  - **peach-menu** [(repo)](https://github.com/peachcloud/peach-menu)
    - monitor and interact with the device via the physical interface
+ - **peach-monitor** [(repo)](https://github.com/peachcloud/peach-monitor)
+   - monitor network data usage and set alert flags
  - **peach-network** [(repo)](https://github.com/peachcloud/peach-network)
    - query and configure network interfaces
  - **peach-oled** [(repo)](https://github.com/peachcloud/peach-oled)

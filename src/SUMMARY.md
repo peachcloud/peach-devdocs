@@ -13,6 +13,7 @@
   - [Microservices](./software/microservices/index.md)
     - [peach-buttons](./software/microservices/peach-buttons.md)
     - [peach-menu](./software/microservices/peach-menu.md)
+    - [peach-monitor](./software/microservices/peach-monitor.md)
     - [peach-network](./software/microservices/peach-network.md)
     - [peach-oled](./software/microservices/peach-oled.md)
     - [peach-stats](./software/microservices/peach-stats.md)

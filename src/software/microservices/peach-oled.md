@@ -1,8 +1,6 @@
 # peach-oled
 
-[![Build Status](https://travis-ci.com/peachcloud/peach-oled.svg?branch=master)](https://travis-ci.com/peachcloud/peach-oled)
-
-[![GitHub logo](/assets/github_logo.png "peach-oled GitHub repository")](https://github.com/peachcloud/peach-oled)
+[![GitHub logo](/assets/github_logo.png "peach-oled GitHub repository")](https://github.com/peachcloud/peach-oled) [![Build Status](https://travis-ci.com/peachcloud/peach-oled.svg?branch=master)](https://travis-ci.com/peachcloud/peach-oled) ![Version badge](https://img.shields.io/badge/version-0.1.0-<COLOR>.svg)
 
 OLED microservice module for PeachCloud. Write to a 128x64 OLED display with SDD1306 driver (I2C) using [JSON-RPC](https://www.jsonrpc.org/specification) over HTTP.
 

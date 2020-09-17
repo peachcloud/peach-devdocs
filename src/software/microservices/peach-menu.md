@@ -1,8 +1,6 @@
 # peach-menu
 
-[![Build Status](https://travis-ci.com/peachcloud/peach-menu.svg?branch=master)](https://travis-ci.com/peachcloud/peach-menu)
-
-[![GitHub logo](/assets/github_logo.png "peach-menu GitHub repository")](https://github.com/peachcloud/peach-menu)
+[![GitHub logo](/assets/github_logo.png "peach-menu GitHub repository")](https://github.com/peachcloud/peach-menu) [![Build Status](https://travis-ci.com/peachcloud/peach-menu.svg?branch=master)](https://travis-ci.com/peachcloud/peach-menu) ![Version badge](https://img.shields.io/badge/version-0.2.0-<COLOR>.svg)
 
 OLED menu microservice module for PeachCloud. A state machine which listens for GPIO events (button presses) by subscribing to `peach-buttons` over websockets and makes [JSON-RPC](https://www.jsonrpc.org/specification) calls to relevant PeachCloud microservices (`peach-network`, `peach-oled`, `peach-stats`).
 
