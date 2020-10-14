@@ -1,6 +1,9 @@
 # Summary
 
 - [Introduction](./introduction.md)
+  - [Story](./introduction/story.md)
+  - [Design Principles](./introduction/design_principles.md)
+- [Quick Deployment](./quick_deployment.md)
 - [Hardware](./hardware/index.md)
   - [Requirements](./hardware/requirements.md)
   - [GPIO Pinout](./hardware/gpio_pinout.md)
