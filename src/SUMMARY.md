@@ -25,5 +25,6 @@
   - [Compilation](./software/compilation.md)
   - [Packaging](./software/packaging.md)
   - [Configuration](./software/configuration.md)
+- [Features](./features.md)
 - [Contributor's Guide](./contributors_guide.md)
 - [Licensing](./licensing.md)
