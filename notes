@@ -1,44 +1,22 @@
 notes.
 
+-----
+
+16/10/2020
+
+ - questions raised by max (@notplants) as he contributes
+   - rtc
+     - why is a real-time clock needed? what does it do?
+     - is there a recommened seller?
+     - i see multiple variants of the module, which one should i get?
+     + hobbytronics have discontinued the ds1338. the ds3231 looks like a solid alternative
+       - requires slight change in configuration (/boot/firmware/config.txt : dtoverlay=i2c-rtc,ds3231)
+
+-----
+
 29/06/2020
 
  - todo: add styling conventions section
    - code comments: Capitalized first word and period at the end.
 
 -----
-
-chapter_1.md
- - Introduction
-
-chapter_2.md
- - Hardware
-   - Requirements
-     - Prototyping components
-   - GPIO pinout
-
-chapter_3.md
- - Software
-   - Operating system
-     - Development environment setup
-       - Rust compiler
-   - Microservices
-     - Overview / architecture
-     - peach-buttons
-     - peach-menu
-     - peach-network
-     - peach-oled
-     - peach-stats
-   - Configuration
-   - Interfaces
-     - Physical interface
-     - Web interface
-       - peach-web
-
-chapter_5.md
- - Contributors guide
-
------
-
-appendices:
-
- - Licenses
