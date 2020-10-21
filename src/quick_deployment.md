@@ -6,16 +6,20 @@ The instructions, configuration files and scripts referred to in this section ca
 
 ## Prerequisite Steps
 
-Download the latest Debian Buster preview image for RPi3 and flash it to an SD card (card is located at `/dev/mmcblk0` in this case):
+Download the latest Debian Buster preview image for RPi3 and flash it to an SD card.
+
+Note: Be sure to use the correct device location in the `dd` command, otherwise you risk wiping another connected USB device. `sudo dmesg | tail` can be run after plugging in the SD card to determine the correct device location:
 
 `wget https://raspi.debian.net/verified/20200831_raspi_3.img.xz`
 `xzcat 20190628_raspberry-pi-3_buster_PREVIEW.img.xz | sudo dd of=/dev/mmcblk0 bs=64k oflag=dsync status=progress`
 
-on mac os, use the following command to flash the sd card:
-`xzcat 20190628_raspberry-pi-3_buster_PREVIEW.img.xz | sudo dd of=/dev/sdcarddisc`
-or you can use [Etcher](https://www.balena.io/etcher/).
+On Mac OS, use the following command to flash the SD card:
 
-note: if the above image link stops working, you can find the complete list of raspberry pi debian images [here](https://raspi.debian.net/tested-images/).
+`xzcat 20190628_raspberry-pi-3_buster_PREVIEW.img.xz | sudo dd of=/dev/sdcarddisc`
+
+Alternatively, use [Etcher](https://www.balena.io/etcher/).
+
+Note: if the above image link stops working, you can find the complete list of Raspberry Pi Debian images [here](https://raspi.debian.net/tested-images/).
 
 ## Setup
 
@@ -26,7 +30,7 @@ Quick setup commands to connect to a local WiFi network over the `wlan0` interfa
 root
 # password (by default raspberry debian requires no password, so we set the password for root here)
 passwd
-# set interface up
+# set interface up (run command twice if you receive 'link is not ready' error on first try)
 ip link set wlan0 up
 # append ssid and password for wifi access point
 wpa_passphrase <SSID> <PASS> > /etc/wpa_supplicant/wpa_supplicant.conf
@@ -50,7 +54,7 @@ nano /etc/network/interfaces
 
 [ Add the following lines to the file ]
 
-```
+```bash
 auto lo
 iface lo inet loopback
 
@@ -72,10 +76,10 @@ The `setup_dev_env.py` script can be executed once your Pi is internet-connected
 
 _TODO: Add flags to (de)select I2C, RTC and Rust install & config. Flags should also be added which allow the installer to choose between development environment and release environment configuration._
 
-`apt update`
-`apt install git python`
-`git clone https://github.com/peachcloud/peach-config.git`
-`cd peach-config`
-`python scripts/setup_dev_env.py <USER>`
-
-**IMPORTANT: Please do not forget to set a new password for the root user!**
+```bash
+apt update
+apt install git python
+git clone https://github.com/peachcloud/peach-config.git
+cd peach-config
+python scripts/setup_dev_env.py <USER>
+```
