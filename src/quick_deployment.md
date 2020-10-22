@@ -10,8 +10,10 @@ Download the latest Debian Buster preview image for RPi3 and flash it to an SD c
 
 Note: Be sure to use the correct device location in the `dd` command, otherwise you risk wiping another connected USB device. `sudo dmesg | tail` can be run after plugging in the SD card to determine the correct device location:
 
-`wget https://raspi.debian.net/verified/20200831_raspi_3.img.xz`
-`xzcat 20190628_raspberry-pi-3_buster_PREVIEW.img.xz | sudo dd of=/dev/mmcblk0 bs=64k oflag=dsync status=progress`
+```bash
+wget https://raspi.debian.net/verified/20200831_raspi_3.img.xz
+xzcat 20190628_raspberry-pi-3_buster_PREVIEW.img.xz | sudo dd of=/dev/mmcblk0 bs=64k oflag=dsync status=progress
+```
 
 On Mac OS, use the following command to flash the SD card:
 
@@ -40,7 +42,7 @@ nano /etc/wpa_supplicant/wpa_supplicant.conf
 
 [ Add the following two lines to top of file ]
 
-```bash
+```plaintext
 ctrl_interface=/run/wpa_supplicant
 update_config=1
 ```
@@ -54,7 +56,7 @@ nano /etc/network/interfaces
 
 [ Add the following lines to the file ]
 
-```bash
+```plaintext
 auto lo
 iface lo inet loopback
 
