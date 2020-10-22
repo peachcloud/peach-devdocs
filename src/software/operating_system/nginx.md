@@ -4,7 +4,7 @@
 
 The configuration file for `nginx` can be found at `/etc/nginx/sites-available/peach.conf`. The contents are as follows:
 
-```
+```nginx
 server {
         listen 80;
         server_name peach www.peach;
