@@ -34,7 +34,8 @@ Move into the `devdocs_bare` directory and create the hooks script:
 
 ```bash
 cd ~/devdocs_bare
-vim hooks/post-receive```
+vim hooks/post-receive
+```
 
 Add the following text to the script:
 
