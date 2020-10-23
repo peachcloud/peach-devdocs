@@ -55,7 +55,7 @@ do
 done
 ```
 
-_In brief, the script clones the latest documentation code to the `devdocs_build` directory, builds it, and copies the resulting book to the web directory._
+In brief, the script clones the latest documentation code to the `devdocs_build` directory, builds it, and copies the resulting book to the web directory.
 
 The automated build and deployment process can now be initiated from the developer's local machine. First, the production server is added as a remote, then the push is made:
 
