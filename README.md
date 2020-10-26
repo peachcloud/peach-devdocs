@@ -1,6 +1,6 @@
 # peach-devdocs
 
-[![Build Status](https://travis-ci.com/peachcloud/peach-devdocs.svg?branch=master)](https://travis-ci.com/peachcloud/peach-devdocs) ![Generic badge](https://img.shields.io/badge/version-0.2.0-<COLOR>.svg)
+[![Build Status](https://travis-ci.com/peachcloud/peach-devdocs.svg?branch=master)](https://travis-ci.com/peachcloud/peach-devdocs) ![Generic badge](https://img.shields.io/badge/version-0.3.0-<COLOR>.svg)
 
 Developer documentation for [PeachCloud](https://github.com/peachcloud) in the form of a Markdown book.
 
@@ -42,6 +42,10 @@ The PeachCloud developer documentation book is hosted at [docs.peachcloud.org](h
 
 This tutorial from Digital Ocean describes the deployment process: [How To Set Up Nginx Server Blocks (Virtual Hosts) on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04).
 
-### Licensing
+## Production Deployment
+
+Deployment of the documentation book to production is automated using Git Hooks. Refer to the [GITHOOK_DEPLOYMENT.md](./GITHOOK_DEPLOYMENT.md) document for setup and usage instructions.
+
+## Licensing
 
 AGPL-3.0
