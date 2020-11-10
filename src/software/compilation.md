@@ -24,12 +24,16 @@ These instructions cover cross-compilation for Debian Buster running on a Raspbe
 
 `export CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=/usr/bin/aarch64-linux-gnu-gcc`
 
-Alternatively, create a file named `cargo-config` in the root directory of the crate and add the following:
+Alternatively, create a file named `config` in the `~/.cargo` directory of the home user and add the following:
 
 ```bash
 [target.aarch64-unknown-linux-gnu]
 linker = "aarch64-linux-gnu-gcc"
+objcopy = { path ="aarch64-linux-gnu-objcopy" }
+strip = { path ="aarch64-linux-gnu-strip" }
 ```
+
+The `objcopy` and `strip` parameters are needed by `cargo deb` when cross-compiling Debian packages.
 
 **Compile release build:**
 
