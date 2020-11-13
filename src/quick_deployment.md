@@ -12,12 +12,12 @@ Note: Be sure to use the correct device location in the `dd` command, otherwise 
 
 ```bash
 wget https://raspi.debian.net/verified/20200831_raspi_3.img.xz
-xzcat 20190628_raspberry-pi-3_buster_PREVIEW.img.xz | sudo dd of=/dev/mmcblk0 bs=64k oflag=dsync status=progress
+xzcat 20200831_raspi_3.img.xz | sudo dd of=/dev/mmcblk0 bs=64k oflag=dsync status=progress
 ```
 
 On Mac OS, use the following command to flash the SD card:
 
-`xzcat 20190628_raspberry-pi-3_buster_PREVIEW.img.xz | sudo dd of=/dev/sdcarddisc`
+`xzcat 20200831_raspi_3.img.xz | sudo dd of=/dev/sdcarddisc`
 
 Alternatively, use [Etcher](https://www.balena.io/etcher/).
 
