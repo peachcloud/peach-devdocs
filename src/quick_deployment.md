@@ -43,7 +43,7 @@ nano /etc/wpa_supplicant/wpa_supplicant.conf
 [ Add the following two lines to top of file ]
 
 ```plaintext
-ctrl_interface=/run/wpa_supplicant
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=wpactrl-user
 update_config=1
 ```
 
