@@ -75,13 +75,16 @@ iface wlan0 inet dhcp
 ## Scripts
 
 The `setup_dev_env.py` script can be executed once your Pi is internet-connected and `git` and `python` have been installed. It takes a `<USER>` argument to create a new system user. You will be prompted to enter a password for your newly created user. The script will install system requirements and copy configuration files relating to networking, I2C and RTC.
+The i2c and rtc flags are optional and can be removed for installation without the peripheral hardware.
 
-_TODO: Add flags to (de)select I2C, RTC and Rust install & config. Flags should also be added which allow the installer to choose between development environment and release environment configuration._
+_TODO: Add flags to (de)select Rust install & config. Flags should also be added which allow the installer to choose between development environment and release environment configuration._
 
 ```bash
 apt update
 apt install git python
 git clone https://github.com/peachcloud/peach-config.git
 cd peach-config
-python scripts/setup_dev_env.py <USER>
+python scripts/setup_dev_env.py --i2c --rtc ds3231 <USER>
 ```
+
+
