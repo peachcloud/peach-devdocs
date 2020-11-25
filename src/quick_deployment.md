@@ -74,14 +74,36 @@ iface wlan0 inet dhcp
 
 ## Scripts
 
-The `setup_dev_env.py` script can be executed once your Pi is internet-connected and `git` and `python` have been installed. It takes a `<USER>` argument to create a new system user. You will be prompted to enter a password for your newly created user. The script will install system requirements and copy configuration files relating to networking, I2C and RTC.
-
-_TODO: Add flags to (de)select I2C, RTC and Rust install & config. Flags should also be added which allow the installer to choose between development environment and release environment configuration._
+The `setup_dev_env.py` script can be executed once your Pi is internet-connected and `git` and `python` have been installed.
 
 ```bash
 apt update
 apt install git python
 git clone https://github.com/peachcloud/peach-config.git
 cd peach-config
-python scripts/setup_dev_env.py <USER>
+# run the script with --i2c and --rtc flags to configure
+python scripts/setup_dev_env.py -i -r ds3231 <USER>
 ```
+
+Running the script with the `-h` flag shows the help menu:
+
+```bash
+usage: setup_dev_env.py [-h] [-i] [-r {ds1307,ds3231}] user
+
+positional arguments:
+  user                  username for the default user account
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i, --i2c             configure i2c
+  -r {ds1307,ds3231}, --rtc {ds1307,ds3231}
+                        configure real-time clock
+```
+
+A `<USER>` argument must be supplied to create a new system user. You will be prompted to enter a password for your newly created user.
+
+The script also allows optional configuration of I2C and real-time clock (RTC) modules. I2C configuration is necessary for the OLED display and physical interface to work correctly. RTC configuration is required for the real-time clock to work correctly. When passing the `-r` flag, the type of real-time clock module must be included (either ds1307 or ds3231). Selecting real-time clock configuration will not work if the I2C flag is not selected (in other words, the real-time clock requires I2C).
+
+Run the script as follows for a full installation and configuration with I2C and the ds3231 RTC module (username in this case is `peach`):
+
+`python scripts/setup_dev_env.py -i -r ds3231 peach`
