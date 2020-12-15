@@ -64,6 +64,10 @@ allow-hotplug wlan0
 auto wlan0
 iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+    
+allow-hotplug eth0
+auto eth0
+iface eth0 inet dhcp
 ```
 
 [ Save and exit ]
