@@ -1,6 +1,6 @@
 # peach-stats
 
-[![GitHub logo](/assets/github_logo.png "peach-stats GitHub repository")](https://github.com/peachcloud/peach-stats) [![Build Status](https://travis-ci.com/peachcloud/peach-stats.svg?branch=master)](https://travis-ci.com/peachcloud/peach-stats) ![Version badge](https://img.shields.io/badge/version-0.1.0-<COLOR>.svg)
+[![GitHub logo](/assets/github_logo.png "peach-stats GitHub repository")](https://github.com/peachcloud/peach-stats) [![Build Status](https://travis-ci.com/peachcloud/peach-stats.svg?branch=master)](https://travis-ci.com/peachcloud/peach-stats) ![Version badge](https://img.shields.io/badge/version-0.1.1-<COLOR>.svg)
 
 System statistics microservice module for PeachCloud. Provides a JSON-RPC wrapper around the [probes](https://crates.io/crates/probes) and [systemstat](https://crates.io/crates/systemstat) crates.
 
@@ -13,6 +13,7 @@ System statistics microservice module for PeachCloud. Provides a JSON-RPC wrappe
 | `disk_usage` | Disk usage statistics (array of disks) | `filesystem`, `one_k_blocks`, `one_k_blocks_used`, `one_k_blocks_free`, `used_percentage`, `mountpoint` |
 | `load_average` | Load average statistics | `one`, `five`, `fifteen` |
 | `mem_stats` | Memory statistics | `total`, `free`, `used` |
+| `ping` | Microservice status | `success` if running |
 | `uptime` | System uptime | `secs`, `nanos` |
 
 ### Directory Tree
