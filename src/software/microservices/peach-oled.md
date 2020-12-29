@@ -1,6 +1,6 @@
 # peach-oled
 
-[![GitHub logo](/assets/github_logo.png "peach-oled GitHub repository")](https://github.com/peachcloud/peach-oled) [![Build Status](https://travis-ci.com/peachcloud/peach-oled.svg?branch=master)](https://travis-ci.com/peachcloud/peach-oled) ![Version badge](https://img.shields.io/badge/version-0.1.0-<COLOR>.svg)
+[![GitHub logo](/assets/github_logo.png "peach-oled GitHub repository")](https://github.com/peachcloud/peach-oled) [![Build Status](https://travis-ci.com/peachcloud/peach-oled.svg?branch=master)](https://travis-ci.com/peachcloud/peach-oled) ![Version badge](https://img.shields.io/badge/version-0.1.2-<COLOR>.svg)
 
 OLED microservice module for PeachCloud. Write to a 128x64 OLED display with SDD1306 driver (I2C) using [JSON-RPC](https://www.jsonrpc.org/specification) over HTTP.
 
@@ -12,6 +12,7 @@ OLED microservice module for PeachCloud. Write to a 128x64 OLED display with SDD
 | `draw` | `bytes`, `width`, `height`, `x_coord`, `y_coord` | Draw graphic to display buffer for given byte array, dimensions and co-ordinates |
 | `flush` | | Flush the display |
 | `ping` | | Respond with `success` if microservice is running |
+| `power` | `on` | Toggle the display (memory is retained while off) |
 | `write` | `x_coord`, `y_coord`, `string`, `font_size` | Write message to display buffer for given co-ordinates using given font size |
 
 `peach-oled` allows text to be written with the following font sizes:
