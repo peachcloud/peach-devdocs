@@ -1,6 +1,6 @@
 # peach-network
 
-[![GitHub logo](/assets/github_logo.png "peach-network GitHub repository")](https://github.com/peachcloud/peach-network) [![Build Status](https://travis-ci.com/peachcloud/peach-network.svg?branch=master)](https://travis-ci.com/peachcloud/peach-network) ![Version badge](https://img.shields.io/badge/version-0.2.0-<COLOR>.svg)
+[![GitHub logo](/assets/github_logo.png "peach-network GitHub repository")](https://github.com/peachcloud/peach-network) [![Build Status](https://travis-ci.com/peachcloud/peach-network.svg?branch=master)](https://travis-ci.com/peachcloud/peach-network) ![Version badge](https://img.shields.io/badge/version-0.2.4-<COLOR>.svg)
 
 Networking microservice module for PeachCloud. Query and configure device interfaces using [JSON-RPC](https://www.jsonrpc.org/specification) over HTTP.
 
@@ -97,7 +97,7 @@ Other logging levels include `debug`, `warn` and `error`.
 
 With microservice running, open a second terminal window and use `curl` to call server methods:
 
-`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "get_ip", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5000`
+`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "ip", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5000`
 
 Server responds with:
 
@@ -105,7 +105,7 @@ Server responds with:
 
 **Retrieve SSID of connected access point for wlan1**
 
-`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "get_ssid", "params" : {"iface": "wlan1" }, "id":1 }' 127.0.0.1:5000`
+`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "ssid", "params" : {"iface": "wlan1" }, "id":1 }' 127.0.0.1:5000`
 
 Server response when interface is connected:
 
@@ -117,7 +117,7 @@ Server response when interface is not connected:
 
 **Retrieve list of SSIDs for all networks in range of wlan0**
 
-`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "scan_networks", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5000`
+`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "available_networks", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5000`
 
 Server response when interface is connected:
 
@@ -129,7 +129,7 @@ Server response when interface is not connected:
 
 **Retrieve network traffic statistics for wlan1**
 
-`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "get_traffic", "params" : {"iface": "wlan1" }, "id":1 }' 127.0.0.1:5000`
+`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "traffic", "params" : {"iface": "wlan1" }, "id":1 }' 127.0.0.1:5000`
 
 Server response if interface exists:
 
@@ -138,6 +138,18 @@ Server response if interface exists:
 Server response when interface is not found:
 
 `{"jsonrpc":"2.0","error":{"code":-32004,"message":"Failed to retrieve network traffic for wlan3. Interface may not be connected"},"id":1}`
+
+**Retrieve status information for wlan0**
+
+`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "status", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5110`
+
+Server response if interface exists:
+
+`{"jsonrpc":"2.0","result":"{\"address\":\"b8:27:eb:9b:5d:5f\",\"bssid\":\"f4:8c:eb:cd:31:81\",\"freq\":\"2412\",\"group_cipher\":\"CCMP\",\"id\":\"0\",\"ip_address\":\"192.168.0.162\",\"key_mgmt\":\"WPA2-PSK\",\"mode\":\"station\",\"pairwise_cipher\":\"CCMP\",\"ssid\":\"Home\",\"wpa_state\":\"COMPLETED\"}","id":1}`
+
+Server response when interface is not found:
+
+`{"jsonrpc":"2.0","error":{"code":-32013,"message":"Failed to open control interface for wpasupplicant: No such file or directory (os error 2)"},"id":1}`
 
 ### Licensing
 
