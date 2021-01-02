@@ -80,7 +80,6 @@ All JSON API calls are prefixed by `/api/v1/`. This has been excluded from the t
 ├── Rocket.toml
 ├── src
 │   ├── device.rs
-│   ├── error.rs
 │   ├── lib.rs
 │   ├── main.rs
 │   ├── network.rs
@@ -95,19 +94,30 @@ All JSON API calls are prefixed by `/api/v1/`. This has been excluded from the t
 │   ├── favicon.ico
 │   ├── icons
 │   ├── js
+│   │   ├── network_add.js
 │   │   ├── network_card.js
+│   │   ├── network_detail.js
+│   │   ├── network_modify.js
+│   │   ├── network_usage.js
 │   │   ├── shutdown_menu.js
 │   └── templates
 │       ├── base.html.tera
 │       ├── device.html.tera
+│       ├── help.html.tera
 │       ├── index.html.tera
+│       ├── internal_error.html.tera
+│       ├── login.html.tera
+│       ├── messages.html.tera
 │       ├── nav.html.tera
 │       ├── network_add.html.tera
 │       ├── network_card.html.tera
 │       ├── network_detail.html.tera
 │       ├── network_list.html.tera
 │       ├── network_modify.html.tera
+│       ├── network_usage.html.tera
 │       ├── not_found.html.tera
+│       ├── peers.html.tera
+│       ├── profile.html.tera
 │       └── shutdown.html.tera
 ```
 
