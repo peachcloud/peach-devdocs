@@ -3,8 +3,7 @@
 [![GitHub logo](/assets/github_logo.png "peach-config GitHub repository")](https://github.com/peachcloud/peach-config)
 
 The instructions, configuration files and scripts referred to in this section can all be found in the [peach-config repo](https://github.com/peachcloud/peach-config).
-
-## Prerequisite Steps
+### Prerequisite Steps
 
 Download the latest Debian Buster preview image for RPi3 and flash it to an SD card.
 
@@ -12,7 +11,7 @@ Note: Be sure to use the correct device location in the `dd` command, otherwise 
 
 ```bash
 wget https://raspi.debian.net/verified/20200831_raspi_3.img.xz
-xzcat 20200831_raspi_3.img.xz | sudo dd of=/dev/mmcblk0 bs=64k oflag=dsync status=progress
+xzcat 20200831_raspi_3.img.xz | sudo dd of=/dev/sdb bs=64k oflag=dsync status=progress
 ```
 
 On Mac OS, use the following command to flash the SD card:
@@ -23,7 +22,7 @@ Alternatively, use [Etcher](https://www.balena.io/etcher/).
 
 Note: if the above image link stops working, you can find the complete list of Raspberry Pi Debian images [here](https://raspi.debian.net/tested-images/).
 
-## Setup
+### Setup
 
 Quick setup commands to connect to a local WiFi network over the `wlan0` interface (assuming `eth0` connection is not possible):
 
@@ -34,6 +33,8 @@ root
 passwd
 # set interface up (run command twice if you receive 'link is not ready' error on first try)
 ip link set wlan0 up
+# create the wpactrl-user group 
+groupadd wpactrl-user
 # append ssid and password for wifi access point
 wpa_passphrase <SSID> <PASS> > /etc/wpa_supplicant/wpa_supplicant.conf
 # open wpa_supplicant.conf
@@ -66,15 +67,18 @@ iface wlan0 inet dhcp
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
+
 [ Save and exit ]
 
 `reboot now`
 
 [ Pi should now be connected to the WiFi network ]
 
-## Scripts
+### Scripts
 
-The `setup_dev_env.py` script can be executed once your Pi is internet-connected and `git` and `python` have been installed.
+**System Configuration**
+
+The `setup_dev_env.py` script can be executed once your Pi is internet-connected and `git` and `python` have been installed. 
 
 ```bash
 apt update
@@ -92,7 +96,7 @@ usage: setup_dev_env.py [-h] [-i] [-r {ds1307,ds3231}] user
 
 positional arguments:
   user                  username for the default user account
-
+  
 optional arguments:
   -h, --help            show this help message and exit
   -i, --i2c             configure i2c
@@ -107,3 +111,50 @@ The script also allows optional configuration of I2C and real-time clock (RTC) m
 Run the script as follows for a full installation and configuration with I2C and the ds3231 RTC module (username in this case is `peach`):
 
 `python scripts/setup_dev_env.py -i -r ds3231 peach`
+
+**Network**
+
+The RPi connects to other networks with the `wlan0` interface and deploys an access point on the `ap0` interface. Only one of these modes is active at a time (client or access point). Two scripts are included in this repository to allow easy switching between client and access point modes: `activate_ap.sh` and `activate_client.sh`.
+
+Networking is handled with `wpa_supplicant`, `hostapd` and `dnsmasq`.
+
+### Connecting
+
+Once the setup script has been run, connect to the system remotely over the local network using ssh or mosh:
+
+`ssh user@peach.local` or `mosh user@peach.local`
+
+### Connecting Directly Through Ethernet Cable
+
+If you would like to work on the pi by connecting directly through an ethernet cable, 
+add the additional lines below to /etc/network/interfaces on the pi.
+This is with a laptop having static IP 192.168.0.240 and pi having static IP 192.168.0.241,
+but these addresses are arbitrary as long as they are in the same subnet.
+
+```
+allow-hotplug eth0
+auto eth0
+iface eth0 inet static
+    address 192.168.0.241 
+    # the following lines route all internet traffic not to the laptop away from eth0 interface
+    up ip route del 192.168.0.0/24 dev eth0
+    up ip route add 192.168.0.240 dev eth0 src 192.168.0.241
+```
+
+Then on your laptop (on debian), add the following to /etc/network/interfaces.
+The lines below are based on having an ethernet interface with the name ens9.
+```
+iface ens9 inet static
+    address 192.168.0.240 
+    netmask 255.255.255.0
+    # the following lines route all internet traffic not to the pi away from ens9 interface
+    up ip route del 192.168.0.0/24 dev ens9
+    up ip route add 192.168.0.241 dev ens9 src 192.168.0.240
+```
+
+On Mac OS, you don't need to change the network config on your laptop after changing the config on the pi. 
+
+You should then be able to connect to your pi without wifi via
+```ssh user@peach.local or ssh user@192.168.0.240```
+
+Note that in this setup, all other internet traffic on the pi will be routed through the wlan0 interface.
