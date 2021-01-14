@@ -26,6 +26,11 @@ subnet 10.0.2.0 netmask 255.255.255.240 {
    }
 }
 ```
+Note that b8:27:eb:b1:b1:4e may need to be replaced with the address of your pi's ethernet interface,
+which you can look up on the pi by running `ip a` on the pi. This address should be static.
+This section of the config tells the dhcp server ot always give the specified client 
+the specified IP address 10.0.2.4 when that client asks for an IP address.
+
 
 In `/etc/default/isc-dhcp-server`,
 add the following section with the name of your ethernet interface (in this case ens9),
