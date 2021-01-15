@@ -25,7 +25,6 @@
   - [Pattern Library](./software/pattern_library.md)
   - [Compilation](./software/compilation.md)
   - [Packaging](./software/packaging.md)
-  - [Direct Ethernet Setup](./software/direct-ethernet-setup.md)
   - [Configuration](./software/configuration.md)
 - [Contributor's Guide](./contributors_guide.md)
 - [Licensing](./licensing.md)
