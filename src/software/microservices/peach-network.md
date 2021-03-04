@@ -1,6 +1,6 @@
 # peach-network
 
-[![GitHub logo](/assets/github_logo.png "peach-network GitHub repository")](https://github.com/peachcloud/peach-network) [![Build Status](https://travis-ci.com/peachcloud/peach-network.svg?branch=master)](https://travis-ci.com/peachcloud/peach-network) ![Version badge](https://img.shields.io/badge/version-0.2.0-<COLOR>.svg)
+[![GitHub logo](/assets/github_logo.png "peach-network GitHub repository")](https://github.com/peachcloud/peach-network) [![Build Status](https://travis-ci.com/peachcloud/peach-network.svg?branch=master)](https://travis-ci.com/peachcloud/peach-network) ![Version badge](https://img.shields.io/badge/version-0.2.9-<COLOR>.svg)
 
 Networking microservice module for PeachCloud. Query and configure device interfaces using [JSON-RPC](https://www.jsonrpc.org/specification) over HTTP.
 
@@ -8,7 +8,7 @@ Interaction with wireless interfaces occurs primarily through the [wpactrl crate
 
 _Note: This module is a work-in-progress._
 
-### JSON-RPC API
+## JSON-RPC API
 
 Methods for **retrieving data**:
 
@@ -30,10 +30,10 @@ Methods for **modifying state**:
 
 | Method | Parameters | Description |
 | --- | --- | --- |
-| `activate_ap` | | Activate WiFi access point (stop `wpa_supplicant` and start `hostapd` and `dnsmasq`) |
-| `activate_client` | | Activate WiFi client connection (stop `hostapd` and `dnsmasq` and start `wpa_supplicant`) |
-| `add` | `ssid`, `pass` | Add WiFi credentials to `wpa_supplicant.conf` |
-| `check_iface` | | Run AP / client-mode configuration script |
+| `activate_ap` | | Activate WiFi access point (start `wpa_supplicant@ap0.service`) |
+| `activate_client` | | Activate WiFi client connection (start `wpa_supplicant@wlan0.service`) |
+| `add` | `ssid`, `pass` | Add WiFi credentials to `wpa_supplicant-wlan0.conf` |
+| `check_iface` | | Activate WiFi access point if client mode is active without a connection |
 | `connect` | `id`, `iface` | Disable other networks and attempt connection with AP represented by given id |
 | `delete` | `id`, `iface` | Remove WiFi credentials for given network id and interface |
 | `disable` | `id`, `iface` | Disable connection with AP represented by given id |
@@ -42,13 +42,13 @@ Methods for **modifying state**:
 | `reassociate` | `iface` | Reassociate with current AP for given interface |
 | `reconfigure` | | Force wpa_supplicant to re-read its configuration file |
 | `reconnect` | `iface` | Disconnect and reconnect given interface |
-| `save` | | Save configuration changes to `wpa_supplicant.conf` |
+| `save` | | Save configuration changes to `wpa_supplicant-wlan0.conf` |
 
-### API Documentation
+## API Documentation
 
 API documentation can be built and served with `cargo doc --no-deps --open`. This set of documentation is intended for developers who wish to work on the project or better understand the API of the `src/network.rs` module.
 
-### Directory Tree
+## Directory Tree
 
 ```bash
 .
@@ -62,7 +62,7 @@ API documentation can be built and served with `cargo doc --no-deps --open`. Thi
 │   └── network.rs      // logic for network methods exposed via RPC
 ```
 
-### Setup
+## Setup
 
 Clone this repo:
 
@@ -77,7 +77,7 @@ Run the binary (sudo needed to satisfy permission requirements):
 
 `sudo ./target/release/peach-network`
 
-### Environment
+## Environment
 
 The JSON-RPC HTTP server address and port can be configured with the `PEACH_NETWORK_SERVER` environment variable:
 
@@ -91,13 +91,49 @@ Logging is made available with `env_logger`:
 
 Other logging levels include `debug`, `warn` and `error`.
 
-### Example Usage
+## Debian Packaging
+
+A `systemd` service file and Debian maintainer scripts are included in the `debian` directory, allowing `peach-network` to be easily bundled as a Debian package (`.deb`). The `cargo-deb` [crate](https://crates.io/crates/cargo-deb) can be used to achieve this.
+
+Install `cargo-deb`:
+
+`cargo install cargo-deb`
+
+Move into the repo:
+
+`cd peach-network`
+
+Build the package:
+
+`cargo deb`
+
+The output will be written to `target/debian/peach-network_0.2.4_arm64.deb` (or similar).
+
+Build the package (aarch64):
+
+`cargo deb --target aarch64-unknown-linux-gnu`
+
+Install the package as follows:
+
+`sudo dpkg -i target/debian/peach-network_0.2.4_arm64.deb`
+
+The service will be automatically enabled and started.
+
+Uninstall the service:
+
+`sudo apt-get remove peach-network`
+
+Remove configuration files (not removed with `apt-get remove`):
+
+`sudo apt-get purge peach-network`
+
+## Example Usage
 
 **Retrieve IP address for wlan0**
 
 With microservice running, open a second terminal window and use `curl` to call server methods:
 
-`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "get_ip", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5000`
+`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "ip", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5000`
 
 Server responds with:
 
@@ -105,7 +141,7 @@ Server responds with:
 
 **Retrieve SSID of connected access point for wlan1**
 
-`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "get_ssid", "params" : {"iface": "wlan1" }, "id":1 }' 127.0.0.1:5000`
+`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "ssid", "params" : {"iface": "wlan1" }, "id":1 }' 127.0.0.1:5000`
 
 Server response when interface is connected:
 
@@ -117,11 +153,11 @@ Server response when interface is not connected:
 
 **Retrieve list of SSIDs for all networks in range of wlan0**
 
-`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "scan_networks", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5000`
+`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "available_networks", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5000`
 
 Server response when interface is connected:
 
-`{"jsonrpc":"2.0","result":"[\"Home\",\"TP-LINK_254700\"]","id":1}`
+`{"jsonrpc":"2.0","result":"[{\"frequency\":\"2412\",\"signal_level\":\"-72\",\"ssid\":\"Home\",\"flags\":\"[WPA2-PSK-CCMP][ESS]\"},{\"frequency\":\"2472\",\"signal_level\":\"-56\",\"ssid\":\"podetium\",\"flags\":\"[WPA2-PSK-CCMP+TKIP][ESS]\"}]","id":1}`
 
 Server response when interface is not connected:
 
@@ -129,7 +165,7 @@ Server response when interface is not connected:
 
 **Retrieve network traffic statistics for wlan1**
 
-`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "get_traffic", "params" : {"iface": "wlan1" }, "id":1 }' 127.0.0.1:5000`
+`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "traffic", "params" : {"iface": "wlan1" }, "id":1 }' 127.0.0.1:5000`
 
 Server response if interface exists:
 
@@ -139,6 +175,18 @@ Server response when interface is not found:
 
 `{"jsonrpc":"2.0","error":{"code":-32004,"message":"Failed to retrieve network traffic for wlan3. Interface may not be connected"},"id":1}`
 
-### Licensing
+**Retrieve status information for wlan0**
+
+`curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method": "status", "params" : {"iface": "wlan0" }, "id":1 }' 127.0.0.1:5110`
+
+Server response if interface exists:
+
+`{"jsonrpc":"2.0","result":"{\"address\":\"b8:27:eb:9b:5d:5f\",\"bssid\":\"f4:8c:eb:cd:31:81\",\"freq\":\"2412\",\"group_cipher\":\"CCMP\",\"id\":\"0\",\"ip_address\":\"192.168.0.162\",\"key_mgmt\":\"WPA2-PSK\",\"mode\":\"station\",\"pairwise_cipher\":\"CCMP\",\"ssid\":\"Home\",\"wpa_state\":\"COMPLETED\"}","id":1}`
+
+Server response when interface is not found:
+
+`{"jsonrpc":"2.0","error":{"code":-32013,"message":"Failed to open control interface for wpasupplicant: No such file or directory (os error 2)"},"id":1}`
+
+## Licensing
 
 AGPL-3.0

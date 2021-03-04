@@ -1,10 +1,10 @@
 # peach-oled
 
-[![GitHub logo](/assets/github_logo.png "peach-oled GitHub repository")](https://github.com/peachcloud/peach-oled) [![Build Status](https://travis-ci.com/peachcloud/peach-oled.svg?branch=master)](https://travis-ci.com/peachcloud/peach-oled) ![Version badge](https://img.shields.io/badge/version-0.1.0-<COLOR>.svg)
+[![GitHub logo](/assets/github_logo.png "peach-oled GitHub repository")](https://github.com/peachcloud/peach-oled) [![Build Status](https://travis-ci.com/peachcloud/peach-oled.svg?branch=master)](https://travis-ci.com/peachcloud/peach-oled) ![Version badge](https://img.shields.io/badge/version-0.1.3-<COLOR>.svg)
 
 OLED microservice module for PeachCloud. Write to a 128x64 OLED display with SDD1306 driver (I2C) using [JSON-RPC](https://www.jsonrpc.org/specification) over HTTP.
 
-### JSON-RPC API
+## JSON-RPC API
 
 | Method | Parameters | Description |
 | --- | --- | --- |
@@ -12,6 +12,7 @@ OLED microservice module for PeachCloud. Write to a 128x64 OLED display with SDD
 | `draw` | `bytes`, `width`, `height`, `x_coord`, `y_coord` | Draw graphic to display buffer for given byte array, dimensions and co-ordinates |
 | `flush` | | Flush the display |
 | `ping` | | Respond with `success` if microservice is running |
+| `power` | `on` | Toggle the display (memory is retained while off) |
 | `write` | `x_coord`, `y_coord`, `string`, `font_size` | Write message to display buffer for given co-ordinates using given font size |
 
 `peach-oled` allows text to be written with the following font sizes:
@@ -23,7 +24,7 @@ OLED microservice module for PeachCloud. Write to a 128x64 OLED display with SDD
 | `8x16` |
 | `12x16` |
 
-### Directory Tree
+## Directory Tree
 
 ```bash
 .
@@ -39,7 +40,7 @@ OLED microservice module for PeachCloud. Write to a 128x64 OLED display with SDD
 │   └── main.rs         // init logger, call run() & catch application errors
 ```
 
-### Setup
+## Setup
 
 Clone this repo:
 
@@ -54,7 +55,7 @@ Run the binary:
 
 `./target/release/peach-oled`
 
-### Environment
+## Environment
 
 The JSON-RPC HTTP server address and port can be configured with the `PEACH_OLED_SERVER` environment variable:
 
@@ -68,7 +69,7 @@ Logging is made available with `env_logger`:
 
 Other logging levels include `debug`, `warn` and `error`.
 
-### Example Usage
+## Example Usage
 
 **Write Text to the OLED Display**
 
@@ -139,6 +140,6 @@ Server responds with:
 
 `{"jsonrpc":"2,0","result":"success","id":1}`
 
-### Licensing
+## Licensing
 
 AGPL-3.0

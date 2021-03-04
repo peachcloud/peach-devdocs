@@ -1,10 +1,10 @@
 # peach-stats
 
-[![GitHub logo](/assets/github_logo.png "peach-stats GitHub repository")](https://github.com/peachcloud/peach-stats) [![Build Status](https://travis-ci.com/peachcloud/peach-stats.svg?branch=master)](https://travis-ci.com/peachcloud/peach-stats) ![Version badge](https://img.shields.io/badge/version-0.1.0-<COLOR>.svg)
+[![GitHub logo](/assets/github_logo.png "peach-stats GitHub repository")](https://github.com/peachcloud/peach-stats) [![Build Status](https://travis-ci.com/peachcloud/peach-stats.svg?branch=master)](https://travis-ci.com/peachcloud/peach-stats) ![Version badge](https://img.shields.io/badge/version-0.1.3-<COLOR>.svg)
 
 System statistics microservice module for PeachCloud. Provides a JSON-RPC wrapper around the [probes](https://crates.io/crates/probes) and [systemstat](https://crates.io/crates/systemstat) crates.
 
-### JSON-API
+## JSON-API
 
 | Method | Description | Returns |
 | --- | --- | --- |
@@ -13,9 +13,10 @@ System statistics microservice module for PeachCloud. Provides a JSON-RPC wrappe
 | `disk_usage` | Disk usage statistics (array of disks) | `filesystem`, `one_k_blocks`, `one_k_blocks_used`, `one_k_blocks_free`, `used_percentage`, `mountpoint` |
 | `load_average` | Load average statistics | `one`, `five`, `fifteen` |
 | `mem_stats` | Memory statistics | `total`, `free`, `used` |
+| `ping` | Microservice status | `success` if running |
 | `uptime` | System uptime | `secs`, `nanos` |
 
-### Directory Tree
+## Directory Tree
 
 ```bash
 .
@@ -30,7 +31,7 @@ System statistics microservice module for PeachCloud. Provides a JSON-RPC wrappe
     └── structs.rs      // data types for stats
 ```
 
-### Setup
+## Setup
 
 Clone this repo:
 
@@ -45,7 +46,7 @@ Run the binary:
 
 `./target/release/peach-stats`
 
-### Environment
+## Environment
 
 The JSON-RPC HTTP server address and port can be configured with the `PEACH_STATS_SERVER` environment variable:
 
@@ -59,7 +60,43 @@ Logging is made available with `env_logger`:
 
 Other logging levels include `debug`, `warn` and `error`.
 
-### Example Usage
+## Debian Packaging
+
+A `systemd` service file and Debian maintainer scripts are included in the `debian` directory, allowing `peach-stats` to be easily bundled as a Debian package (`.deb`). The `cargo-deb` [crate](https://crates.io/crates/cargo-deb) can be used to achieve this.
+
+Install `cargo-deb`:
+
+`cargo install cargo-deb`
+
+Move into the repo:
+
+`cd peach-stats`
+
+Build the package:
+
+`cargo deb`
+
+The output will be written to `target/debian/peach-stats_0.1.0_arm64.deb` (or similar).
+
+Build the package (aarch64):
+
+`cargo deb --target aarch64-unknown-linux-gnu`
+
+Install the package as follows:
+
+`sudo dpkg -i target/debian/peach-stats_0.1.0_arm64.deb`
+
+The service will be automatically enabled and started.
+
+Uninstall the service:
+
+`sudo apt-get remove peach-stats`
+
+Remove configuration files (not removed with `apt-get remove`):
+
+`sudo apt-get purge peach-stats`
+
+## Example Usage
 
 **Get CPU Statistics**
 
@@ -81,7 +118,7 @@ Server responds with:
 
 `{"jsonrpc":"2.0","result":"{\"secs\":840968,\"nanos\":0}","id":1}`
 
-### Licensing
+## Licensing
 
 AGPL-3.0
 
