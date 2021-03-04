@@ -1,6 +1,6 @@
 # peach-monitor
 
-[![GitHub logo](/assets/github_logo.png "peach-monitor GitHub repository")](https://github.com/peachcloud/peach-monitor) [![Build Status](https://travis-ci.com/peachcloud/peach-web.svg?branch=master)](https://travis-ci.com/peachcloud/peach-web) ![Version badge](https://img.shields.io/badge/version-0.1.0-<COLOR>.svg)
+[![GitHub logo](/assets/github_logo.png "peach-monitor GitHub repository")](https://github.com/peachcloud/peach-monitor) [![Build Status](https://travis-ci.com/peachcloud/peach-web.svg?branch=master)](https://travis-ci.com/peachcloud/peach-web) ![Version badge](https://img.shields.io/badge/version-0.1.1-<COLOR>.svg)
 
 Monitor network data usage and set alert flags based on user-defined thresholds.
 
@@ -14,7 +14,7 @@ The `--daemon` flag executes the `--update` functionality in a loop and is inten
 
 The `--iface` argument is used to define the network interface from which to retrieve network traffic data. This defaults to `wlan0` if not defined.
 
-### Usage
+## Usage
 
 `peach-monitor [FLAGS] [OPTIONS]`
 
@@ -31,7 +31,7 @@ OPTIONS:
     -t, --interval <interval>    Define time interval for updating alert flags (seconds) [default: 60]
 ```
 
-### Data Store
+## Data Store
 
 `~/.local/share/peachcloud`
 
@@ -43,11 +43,11 @@ OPTIONS:
     └── traffic.json        // network transmission totals
 ```
 
-### Alert Types
+## Alert Types
 
 `peach-monitor` defines warning and cutoff thresholds and corresponding alert flags for both received and transmitted network data. The cutoff thresholds are intended to allow data-intensive processes such as Scuttlebutt replication to be enabled and disabled dynamically.
 
-### Debian Packaging
+## Debian Packaging
 
 A `systemd` service file and Debian maintainer scripts are included in the `debian` directory, allowing `peach-monitor` to be easily bundled as a Debian package (`.deb`). The `cargo-deb` [crate](https://crates.io/crates/cargo-deb) can be used to achieve this.
 
@@ -79,10 +79,10 @@ Remove configuration files (not removed with `apt-get remove`):
 
 `sudo apt-get purge peach-monitor`
 
-### Roadmap
+## Roadmap
 
-- Add disk-usage tracking and alerts  
+- Add disk-usage tracking and alerts
 
-### Licensing
+## Licensing
 
 AGPL-3.0
