@@ -33,8 +33,6 @@ root
 passwd
 # set interface up (run command twice if you receive 'link is not ready' error on first try)
 ip link set wlan0 up
-# create the wpactrl-user group 
-groupadd wpactrl-user
 # append ssid and password for wifi access point
 wpa_passphrase <SSID> <PASS> > /etc/wpa_supplicant/wpa_supplicant.conf
 # open wpa_supplicant.conf
