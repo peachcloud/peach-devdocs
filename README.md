@@ -1,3 +1,7 @@
+⚠️ This repo is no longer active and has been archived. The active repo can be found at https://git.coopcloud.tech/PeachCloud/peach-devdocs ⚠️
+
+-----
+
 # peach-devdocs
 
 [![Build Status](https://travis-ci.com/peachcloud/peach-devdocs.svg?branch=master)](https://travis-ci.com/peachcloud/peach-devdocs) ![Generic badge](https://img.shields.io/badge/version-0.3.2-<COLOR>.svg)
